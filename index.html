@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Of Vinuka</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #007BFF, #6C63FF);
+            color: #fff;
+        }
+
+        .container {
+            background: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .details h2 {
+            font-size: 20px;
+            color: #007BFF;
+        }
+
+        .details p {
+            font-size: 16px;
+            margin: 5px 0;
+            text-align: left;
+        }
+
+        .logout {
+            margin-top: 20px;
+            color: #007BFF;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .logout:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Secure Access</h1>
+        <input type="password" id="password" placeholder="Enter your password">
+        <button onclick="checkPassword()">Login</button>
+        <p id="error" class="error">Incorrect password. Please try again!</p>
+
+        <div id="details" class="details">
+            <h2>Your Details</h2>
+            <p><strong>Name:</strong> Vinuka Dihain </p>
+            <p><strong>Age:</strong> 13 </p>
+            <p><strong>Adres:</strong> No.97 Lenchiyawahtha,Ragama </p>
+            <p><strong>Contact Number:</strong> 078 812 2998 </p>
+            <p><strong>Hobby:</strong> Business</p>
+            <span class="logout" onclick="logout()">Logout</span>
+        </div>
+    </div>
+
+    <script>
+        // Function to validate password
+        function checkPassword() {
+            const correctPassword = "123"; // Replace with your secure password
+            const enteredPassword = document.getElementById("password").value;
+            const errorElement = document.getElementById("error");
+            const detailsElement = document.getElementById("details");
+
+            if (enteredPassword === correctPassword) {
+                errorElement.style.display = "none";
+                detailsElement.style.display = "block";
+            } else {
+                errorElement.style.display = "block";
+                detailsElement.style.display = "none";
+            }
+        }
+
+        // Function to logout
+        function logout() {
+            const detailsElement = document.getElementById("details");
+            const passwordInput = document.getElementById("password");
+
+            detailsElement.style.display = "none";
+            passwordInput.value = "";
+        }
+    </script>
+</body>
+
+</html>
